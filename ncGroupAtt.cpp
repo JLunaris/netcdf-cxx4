@@ -42,7 +42,7 @@ NcGroupAtt::NcGroupAtt() :
 {}
 
 // equivalence operator (doesn't bother compaing varid's of each object).
-bool NcGroupAtt::operator==(const NcGroupAtt & rhs)
+bool NcGroupAtt::operator==(const NcGroupAtt & rhs) const
 {
   if(nullObject) 
     return nullObject == rhs.isNull();

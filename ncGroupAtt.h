@@ -30,7 +30,7 @@ namespace netCDF
     NcGroupAtt(const NcGroup& grp, const int index);
     
     /*! equivalence operator */
-    bool operator== (const NcGroupAtt& rhs);
+    bool operator==(const NcGroupAtt& rhs) const;
       
     /*! comparator operator */
     friend bool operator<(const NcGroupAtt& lhs,const NcGroupAtt& rhs);
