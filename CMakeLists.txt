@@ -5,10 +5,11 @@ file(GLOB CXX_SOURCES nc*.cpp)
 
 add_library(netcdf-cxx4 STATIC ${CXX_SOURCES})
 
-target_include_directories(netcdf-cxx4
-        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
+target_link_libraries(netcdf-cxx4
+        PRIVATE netCDF::netcdf
 )
 
-target_link_libraries(netcdf-cxx4
-        PUBLIC netCDF::netcdf
+get_target_property(NC_INC_DIRS netCDF::netcdf INTERFACE_INCLUDE_DIRECTORIES)
+target_include_directories(netcdf-cxx4
+        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${NC_INC_DIRS}
 )
