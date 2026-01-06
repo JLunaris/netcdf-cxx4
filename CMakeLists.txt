@@ -1,5 +1,5 @@
 # The C++ interface requires the C library to have been built with the netCDF-4 API
-find_package(netCDF 4 REQUIRED)
+find_package(netCDF 4.6.0 REQUIRED)
 
 file(GLOB CXX_SOURCES nc*.cpp)
 
@@ -10,6 +10,8 @@ target_link_libraries(netcdf-cxx4
 )
 
 get_target_property(NC_INC_DIRS netCDF::netcdf INTERFACE_INCLUDE_DIRECTORIES)
+
 target_include_directories(netcdf-cxx4
-        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${NC_INC_DIRS}
+        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
+        PUBLIC ${NC_INC_DIRS}
 )
